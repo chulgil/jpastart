@@ -41,9 +41,7 @@ public class Main {
             Member findMember = em.find(Member.class, member.getId()); //1차 캐시
             List<Member> members = findMember.getTeam().getMembers();
             System.out.println("=============");
-            for (Member m : members) {
-                System.out.println("teamId = " + m.getTeam().getId());
-            }
+            System.out.println("무한루프 members = " + findMember.toString());
             System.out.println("=============");
             
             tx.commit();
