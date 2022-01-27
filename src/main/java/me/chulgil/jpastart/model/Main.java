@@ -33,10 +33,17 @@ public class Main {
             member.setTeam(team);
             em.persist(member);
 
-            Member findMember = em.find(Member.class, member.getId());
-            String teamName = findMember.getTeam().getName();
-            System.out.println("findTeam = " + teamName);
+            // 테스트할때 영속성 컨텍스트말고 바로 디비에서 가져오고 싶을때
+            em.flush(); // 영속성 컨텍스트의 변경내용을 디비에 반영
+            em.clear(); // 영속성 컨텍스트를 완전히 초기화
 
+            Member findMember = em.find(Member.class, member.getId());
+            List<Member> members = findMember.getTeam().getMembers();
+
+            for (Member m : members) {
+                System.out.println("m = " + m.getName());
+            }
+            
             tx.commit();
 
         } catch (Exception e) {
