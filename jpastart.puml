@@ -1,7 +1,35 @@
 @startuml
-Class01 <|-- Class02
-Class03 *-- Class04
-Class05 o-- Class06
-Class07 .. Class08
-Class09 -- Class10
+class Member {
+    - id: Long
+    - name: String
+    - city: String
+    - street: String
+    - zipcode: String
+}
+
+class Order {
+    - id: Long
+    - memberId: Date
+    - status: OrderStatus
+}
+
+class OrderItem {
+    - id: Long
+    - orderId: Long
+    - itemId: Long
+    - orderPrice: int
+    - count: int
+}
+
+class Item {
+    - id: Long
+    - name: String
+    - price: int
+    - stockQuantity: int
+}
+
+Member "1" -- "*" Order
+Order "1" - "*" OrderItem
+OrderItem "*" -> "1" Item
+
 @enduml
