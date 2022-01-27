@@ -43,4 +43,10 @@ public class Team {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void addMember(Member member) {
+        // 연관관계 편의 메소드 생성 : 순수한 객체 관계를 고려하면 항상 양쪽다 값을 입력해야 한다.
+        member.setTeam(this);
+        members.add(member);
+    }
 }

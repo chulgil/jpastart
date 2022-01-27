@@ -30,8 +30,9 @@ public class Main {
 
             Member member = new Member();
             member.setName("Member1");
-            member.changeTeam(team);
             em.persist(member);
+
+            team.addMember(member);
 
             // 테스트할때 영속성 컨텍스트말고 바로 디비에서 가져  오고 싶을때
              em.flush(); // 영속성 컨텍스트의 변경내용을 디비에 반영
