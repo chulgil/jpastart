@@ -30,13 +30,12 @@ public class Main {
 
             Member member = new Member();
             member.setName("Member1");
-            member.setTeamId(team.getId());
+            member.setTeam(team);
             em.persist(member);
 
             Member findMember = em.find(Member.class, member.getId());
-            Long findTeamId = findMember.getTeamId();
-            Team findTeam = em.find(Team.class, findTeamId);
-            String teamName = findTeam.getName();
+            String teamName = findMember.getTeam().getName();
+            System.out.println("findTeam = " + teamName);
 
             tx.commit();
 
