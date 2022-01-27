@@ -1,17 +1,10 @@
 @startuml
 class Member {
     - id: Long
-    - team: Team
     - name: String
     - city: String
     - street: String
     - zipcode: String
-}
-
-class Team {
-    - id: Long
-    - name: String
-    - memebers: List
 }
 
 class Order {
@@ -34,7 +27,7 @@ class Item {
     - price: int
     - stockQuantity: int
 }
-Member "*" - "1" Team
+
 Member "1" -- "*" Order
 Order "1" - "*" OrderItem
 OrderItem "*" -> "1" Item
