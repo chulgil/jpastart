@@ -1,12 +1,7 @@
 package me.chulgil.jpastart.model;
 
-
-import me.chulgil.jpastart.entity.Member;
-import me.chulgil.jpastart.entity.Team;
-
 import javax.persistence.*;
 import javax.persistence.Persistence;
-import java.util.List;
 
 /**
  * @author cglee
@@ -20,30 +15,10 @@ public class Main {
         EntityManager em = emf.createEntityManager();
 
         EntityTransaction tx = em.getTransaction();
-
         tx.begin();
 
         try {
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
 
-            Member member = new Member();
-            member.setName("Member1");
-            em.persist(member);
-
-            team.addMember(member);
-
-            // 테스트할때 영속성 컨텍스트말고 바로 디비에서 가져  오고 싶을때
-             em.flush(); // 영속성 컨텍스트의 변경내용을 디비에 반영
-             em.clear(); // 영속성 컨텍스트를 완전히 초기화
-
-            Member findMember = em.find(Member.class, member.getId()); //1차 캐시
-            List<Member> members = findMember.getTeam().getMembers();
-            System.out.println("=============");
-            System.out.println("무한루프 members = " + findMember.toString());
-            System.out.println("=============");
-            
             tx.commit();
 
         } catch (Exception e) {

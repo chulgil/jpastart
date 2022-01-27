@@ -14,16 +14,32 @@ public class Member {
     private Long id;
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
-    private Team team;
+    private String city;
+    private String street;
+    private String zipcode;
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public String getCity() {
+        return city;
     }
 
-    public Team getTeam() {
-        return team;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public Long getId() {
@@ -42,14 +58,6 @@ public class Member {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", team=" + team +
-                '}';
-    }
 }
 
 
