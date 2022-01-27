@@ -30,16 +30,12 @@ public class Main {
 
             Member member = new Member();
             member.setName("Member1");
-            member.setTeam(team); // **순방향
+            member.changeTeam(team);
             em.persist(member);
 
-            // 역방향(주인이 아닌 방향)만 연관관계 설정하면 팀ID가 null이 되므로 주의
-            // 순수한 객체 관계를 고려하면 항상 양쪽다 값을 입력해야한다.
-             team.getMembers().add(member); // ** 역방향
-
             // 테스트할때 영속성 컨텍스트말고 바로 디비에서 가져  오고 싶을때
-            // em.flush(); // 영속성 컨텍스트의 변경내용을 디비에 반영
-            // em.clear(); // 영속성 컨텍스트를 완전히 초기화
+             em.flush(); // 영속성 컨텍스트의 변경내용을 디비에 반영
+             em.clear(); // 영속성 컨텍스트를 완전히 초기화
 
             Member findMember = em.find(Member.class, member.getId()); //1차 캐시
             List<Member> members = findMember.getTeam().getMembers();
