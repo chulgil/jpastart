@@ -8,21 +8,27 @@ class Member {
     - zipcode: String
 }
 
-class Team {
+class Delivery {
     - id: Long
-    - name: String
-    - memebers: List
+    - order: Order
+    - city: String
+    - street: String
+    - zipcode: String
+    - status: DeliveryStatus
 }
 
 class Order {
     - id: Long
-    - memberId: Date
+    - member: Member
+    - orderItems: List
+    - **delivery: Delivery**
+    - orderDate: Date
     - status: OrderStatus
 }
 
 class OrderItem {
     - id: Long
-    - orderId: Long
+    - order: Order
     - itemId: Long
     - orderPrice: int
     - count: int
@@ -33,10 +39,20 @@ class Item {
     - name: String
     - price: int
     - stockQuantity: int
+    - **categories: List**
 }
-Member "*" - "1" Team
-Member "1" -- "*" Order
+
+class Catetgory {
+    - id: Long
+    - name: int
+    - **items: List**
+    - parent: Catetgory
+    - child: List
+}
+
+Order "1" -- "1" Delivery
+Member "1" - "*" Order
 Order "1" - "*" OrderItem
 OrderItem "*" -> "1" Item
-
+Item "*" -- "*" Catetgory
 @enduml

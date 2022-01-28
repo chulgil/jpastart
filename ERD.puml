@@ -1,0 +1,66 @@
+@startuml
+ENTITY MEMBER {
+    * ID : number <<generated>>
+    --
+    NAME
+    CITY
+    STREET
+    ZIPCODE
+}
+
+ENTITY ORDERS {
+    * ID : number <<generated>>
+    --
+    * MEMBER_ID <<FK>>
+    * **DELIVERY_ID <<FK>>**
+    ORDERDATE
+    STATUS
+}
+
+ENTITY DELIVERY {
+    * ID : number <<generated>>
+    --
+    CITY
+    STREET
+    ZIPCODE
+    STATUS
+}
+
+ENTITY ORDER_ITEM {
+    * ID : number <<generated>>
+    --
+    * ORDER_ID <<FK>>
+    * ITEM_ID <<FK>>
+    ORDERPRICE
+    COUNT
+}
+
+ENTITY ITEM {
+    * ID : number <<generated>>
+    --
+    NAME
+    PRICE
+    STOCKQUANTITY
+}
+
+ENTITY CATEGORY {
+    * ID : number <<generated>>
+    --
+    * PARENT_ID (FK)
+    NAME
+}
+
+ENTITY CATEGORY_ITEM {
+    * **CATEGORY_ID <<FK>>**
+    * **ITEM_ID <<FK>>**
+    --
+}
+
+MEMBER ||--O{ ORDERS
+ORDERS ||..|| DELIVERY
+ORDERS ||.|{ ORDER_ITEM
+ORDER_ITEM }O.|| ITEM
+ITEM ||..O{ CATEGORY_ITEM
+CATEGORY_ITEM }O..|| CATEGORY
+
+@enduml

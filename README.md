@@ -45,3 +45,11 @@
 4. 상품
 - 이름, 가격, 재고수량
 
+## 2. UML 작성
+
+### 2.1 기본엔티티
+![Base Entity](Entity.png)
+### 2.2 ERD
+![ERD](ERD.png)
+### 2.3 상세엔티티(클래스)
+![Detail Entity](EntityDetail.png)
