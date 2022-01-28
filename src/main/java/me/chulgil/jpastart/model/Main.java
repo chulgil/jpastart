@@ -1,5 +1,8 @@
 package me.chulgil.jpastart.model;
 
+import me.chulgil.jpastart.entity.Order;
+import me.chulgil.jpastart.entity.OrderItem;
+
 import javax.persistence.*;
 import javax.persistence.Persistence;
 
@@ -18,6 +21,14 @@ public class Main {
         tx.begin();
 
         try {
+
+            Order order = new Order();
+            order.addOrderItem(new OrderItem());
+
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+
+            em.persist(orderItem);
 
             tx.commit();
 
