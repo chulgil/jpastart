@@ -1,4 +1,10 @@
 @startuml
+skinparam rectangle {
+    roundCorner<<Concept>> 25
+}
+
+rectangle " 테이블 설계 " <<Concept>> {
+
 ENTITY MEMBER {
     * MEMBER_ID : <<generated>>
     --
@@ -54,6 +60,7 @@ ENTITY CATEGORY_ITEM {
     * **CATEGORY_ID <<FK>>**
     * **ITEM_ID <<FK>>**
     --
+}
 }
 
 MEMBER ||--o{ ORDERS

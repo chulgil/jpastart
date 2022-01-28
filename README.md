@@ -45,11 +45,16 @@
 4. 상품
 - 이름, 가격, 재고수량
 
+---
+
 ## 2. UML 작성
 
-### 2.1 기본엔티티
-![Base Entity](Entity.png)
-### 2.2 ERD
-![ERD](ERD.png)
-### 2.3 상세엔티티(클래스)
-![Detail Entity](EntityDetail.png)
+### 2.1 기본관계
+![기본관계 도메인](uml/BaseRelation/BaseDomain.png)
+![기본관계 도메인상세](uml/BaseRelation/ERD.png)
+![기본관계 테이블설계](uml/BaseRelation/DetailDomain.png)
+---
+### 2.2 상속관계
+![기본관계 도메인](uml/Inheritance/BaseDomain.png)
+![기본관계 도메인상세](uml/Inheritance/ERD.png)
+![기본관계 테이블설계](uml/Inheritance/DetailDomain.png)

@@ -1,0 +1,67 @@
+@startuml
+
+skinparam rectangle {
+    roundCorner<<Concept>> 25
+}
+
+rectangle " 연관관계 도메인 상세 " <<Concept>> {
+
+    class Member {
+        - id: Long
+        - team: Team
+        - name: String
+        - city: String
+        - street: String
+        - zipcode: String
+        - orders: List
+    }
+
+    class Delivery {
+        - id: Long
+        - **order: Order**
+        - city: String
+        - street: String
+        - zipcode: String
+        - status: DeliveryStatus
+    }
+
+    class Order {
+        - id: Long
+        - member: Member
+        - orderItems: List
+        - **delivery: Delivery**
+        - orderDate: Date
+        - status: OrderStatus
+    }
+
+    class OrderItem {
+        - id: Long
+        - order: Order
+        - itemId: Long
+        - orderPrice: int
+        - count: int
+    }
+
+    class Item {
+        - id: Long
+        - name: String
+        - price: int
+        - stockQuantity: int
+        - **categories: List**
+    }
+
+    class Catetgory {
+        - id: Long
+        - name: string
+        - **items: List**
+        - parent: Catetgory
+        - child: List
+    }
+}
+Member "1" -- "*" Order
+Order "1" -- "1" Delivery
+Order "1" - "*" OrderItem
+OrderItem "*" -> "1" Item
+Item "*" -- "*" Catetgory
+
+@enduml

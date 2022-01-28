@@ -3,7 +3,7 @@ skinparam rectangle {
     roundCorner<<Concept>> 25
 }
 
-rectangle " 연관관계 엔티티 " <<Concept>> {
+rectangle " 연관관계 도메인 " <<Concept>> {
 
     rectangle "회원"
     rectangle "주문"
