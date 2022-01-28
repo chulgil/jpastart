@@ -1,5 +1,6 @@
 package me.chulgil.jpastart.model;
 
+import me.chulgil.jpastart.entity.Book;
 import me.chulgil.jpastart.entity.Order;
 import me.chulgil.jpastart.entity.OrderItem;
 
@@ -22,13 +23,10 @@ public class Main {
 
         try {
 
-            Order order = new Order();
-            order.addOrderItem(new OrderItem());
-
-            OrderItem orderItem = new OrderItem();
-            orderItem.setOrder(order);
-
-            em.persist(orderItem);
+            Book book = new Book();
+            book.setAuthor("chulgil");
+            book.setIsbn("sdf");
+            em.persist(book);
 
             tx.commit();
 
