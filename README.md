@@ -58,3 +58,6 @@
 ![기본관계 도메인](uml/Inheritance/BaseDomain.png)
 ![기본관계 도메인상세](uml/Inheritance/ERD.png)
 ![기본관계 테이블설계](uml/Inheritance/DetailDomain.png)
+
+### 2.3 값타입 매핑
+![기본관계 테이블설계](uml/ValueType/DetailDomain.png)
