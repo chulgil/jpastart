@@ -26,7 +26,7 @@ public class Order extends BaseEntity {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    private LocalDateTime orderData;
+    private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
@@ -51,12 +51,12 @@ public class Order extends BaseEntity {
         this.member = member;
     }
 
-    public LocalDateTime getOrderData() {
-        return orderData;
+    public LocalDateTime getOrderDate() {
+        return orderDate;
     }
 
-    public void setOrderData(LocalDateTime orderData) {
-        this.orderData = orderData;
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
     }
 
     public OrderStatus getStatus() {
